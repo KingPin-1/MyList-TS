@@ -20,7 +20,7 @@ export default class ListTemplate implements DOMList {
 
     render(fullList: FullList): void {
         this.clear();
-        
+
         fullList.list.forEach((listItem) => {
             const listItemNode = document.createElement('li') as HTMLLIElement;
             listItemNode.className = 'item';
@@ -40,14 +40,13 @@ export default class ListTemplate implements DOMList {
             label.htmlFor = listItem.id;
             label.innerText = listItem.item;
 
-            const button = document.createElement(
-                'button'
-            ) as HTMLButtonElement;
+            const button = document.createElement('button') as HTMLButtonElement;
             button.className = 'button';
             button.innerText = 'X';
 
             button.addEventListener('click', () => {
                 fullList.removeItem(listItem.id);
+                this.render(fullList);
             });
 
             listItemNode.appendChild(check);
