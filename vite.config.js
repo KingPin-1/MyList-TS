@@ -1,4 +1,6 @@
+import { defineConfig } from 'rollup';
+
 // vite.config.js
-export default {
-    // config options
-};
+export default defineConfig({
+    base: 'MyList-TS',
+});
